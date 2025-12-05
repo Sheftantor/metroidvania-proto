@@ -11,7 +11,7 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
 @export var location : SIDE = SIDE.LEFT :
 	set( value ):
-		size = value
+		location = value
 		apply_area_settings()
 
 @export_file ( "*.tscn" ) var target_level : String = ""

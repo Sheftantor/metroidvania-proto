@@ -8,8 +8,10 @@ size = Vector2(32, 32)
 [node name="LevelTransition" type="Node2D"]
 script = ExtResource("1_x5gtj")
 size = 1
+location = 3
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
