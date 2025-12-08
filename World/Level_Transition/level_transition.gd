@@ -19,7 +19,14 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
 @onready var area_2d: Area2D = $Area2D
 
-
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	area_2d.body_entered.connect( _on_player_entered )
+		
+func _on_player_entered( _n : Node2D ) -> void:
+	get_tree().change_scene_to_file( target_level )
+	pass
 
 func apply_area_settings() -> void:
 	area_2d = get_node_or_null( "Area2D" ) 
