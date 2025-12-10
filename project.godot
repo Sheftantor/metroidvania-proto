@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-RoomChangeGlobal="*res://World/Scripts/RoomChangeGlobal.gd"
+RoomChangeGlobal="res://World/Scripts/RoomChangeGlobal.gd"
+SceneManager="*res://00_global/Scene_Manager/scene_manager.tscn"
 
 [display]
 
@@ -30,11 +31,16 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://00_global/": "pink",
 "res://General/": "green",
 "res://Imports/": "red",
 "res://Player/": "orange",
 "res://World/": "yellow"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 

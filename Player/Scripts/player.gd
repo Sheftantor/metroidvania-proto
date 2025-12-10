@@ -34,14 +34,10 @@ var gravity_multiplier : float = 1.0
 #endregion
 
 func _ready() -> void:
-	add_to_group("Player")
-	if RoomChangeGlobal.Activate:
-		global_position = RoomChangeGlobal.PlayerPos
-		
-		RoomChangeGlobal.Activate = false
-			
+	if get_tree().get_first_node_in_group("Player") != self:
+		self.queue_free()
 	Initialize_States()
-	
+	self.call_deferred( "reparent", get_tree().root )
 	pass
 	
 func _unhandled_input( event: InputEvent) -> void:
