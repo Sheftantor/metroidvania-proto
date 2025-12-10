@@ -22,7 +22,7 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	apply_area_settings()	
+	apply_area_settings()
 	SceneManager.new_scene_ready.connect( _on_new_scene_ready )
 	SceneManager.load_scene_finished.connect( _on_load_scene_finish )
 		
@@ -38,6 +38,8 @@ func _on_new_scene_ready( target_name : String, offset : Vector2 ) -> void:
 func _on_load_scene_finish() -> void:
 	area_2d.monitoring = false
 	area_2d.body_entered.connect( _on_player_entered )
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	area_2d.monitoring = true

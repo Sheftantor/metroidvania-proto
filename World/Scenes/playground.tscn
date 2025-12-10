@@ -38,9 +38,6 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_nyt41")
 one_way_collision = true
 
-[node name="Player" parent="." instance=ExtResource("1_ux8b7")]
-position = Vector2(91, 256)
-
 [node name="Level_Bounds" type="Node2D" parent="."]
 z_index = 256
 position = Vector2(-48, -59)
@@ -50,7 +47,10 @@ height = 366
 metadata/_custom_type_script = "uid://cikqpb1qhijjn"
 
 [node name="LevelTransition" parent="." instance=ExtResource("5_wumao")]
-position = Vector2(625, 237)
-size = 2
+position = Vector2(625, 256)
+size = 3
 location = 1
 target_level = "uid://clyywy8lxl56u"
+
+[node name="Player" parent="." instance=ExtResource("1_ux8b7")]
+position = Vector2(272, 249)
