@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://7safeqfm3j83" path="res://Imports/forgotten_forest_example_tileset.png" id="1_3hj4h"]
 [ext_resource type="Texture2D" uid="uid://c3aqomqg3bwh7" path="res://Imports/Proto-Tiling.png" id="2_e8spw"]
-[ext_resource type="Texture2D" uid="uid://be8rfw1aq0ib6" path="res://Imports/tileset.png" id="3_e8spw"]
+[ext_resource type="Texture2D" uid="uid://djuihx278ysiy" path="res://Imports/Proto-Tiling-export.png" id="4_oswfd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oswfd"]
 texture = ExtResource("1_3hj4h")
@@ -776,43 +776,29 @@ texture_region_size = Vector2i(32, 32)
 7:5/0/terrains_peering_bit/top_side = 0
 10:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1b33"]
-texture = ExtResource("3_e8spw")
-2:8/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-5:8/0 = 0
-4:8/0 = 0
-3:8/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-14:7/0 = 0
-14:8/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
-18:8/0 = 0
-17:8/0 = 0
-17:7/0 = 0
-16:7/0 = 0
-16:8/0 = 0
-15:8/0 = 0
-15:7/0 = 0
-18:7/0 = 0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0huva"]
+texture = ExtResource("4_oswfd")
+texture_region_size = Vector2i(32, 32)
+13:2/0 = 0
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.31863022, -11.152077, 16, -11.152077, 16, -9.877554, -0.63726044, -9.240292)
+13:2/0/physics_layer_0/polygon_0/one_way = true
+14:2/0 = 0
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10.833445, 16, -11.152077, 16, -8.921661, -16, -8.603029)
+14:2/0/physics_layer_0/polygon_0/one_way = true
+15:2/0 = 0
+15:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10.833445, 16, -11.152077, 16, -8.921661, -16, -8.603029)
+15:2/0/physics_layer_0/polygon_0/one_way = true
+16:2/0 = 0
+16:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10.833445, 0.31863022, -10.833445, 0.31863022, -8.603029, -16, -8.603029)
+16:2/0/physics_layer_0/polygon_0/one_way = true
 
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_priority = 0.635
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.023676114, 0.8196358, 0.89374226, 1)
 sources/0 = SubResource("TileSetAtlasSource_oswfd")
 sources/1 = SubResource("TileSetAtlasSource_25pc2")
-sources/2 = SubResource("TileSetAtlasSource_s1b33")
+sources/3 = SubResource("TileSetAtlasSource_0huva")

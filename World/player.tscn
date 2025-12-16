@@ -311,7 +311,6 @@ enabled = false
 shape = SubResource("RectangleShape2D_vtle1")
 target_position = Vector2(0, 6)
 max_results = 12
-collision_mask = 2
 
 [node name="FootsSteps_Cave" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5njaf")
