@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://u4tw1sy12qpy"]
+[gd_scene load_steps=15 format=4 uid="uid://u4tw1sy12qpy"]
 
 [ext_resource type="PackedScene" uid="uid://2g0qrobqowur" path="res://World/player.tscn" id="1_ux8b7"]
 [ext_resource type="TileSet" uid="uid://cjf6pq26drhp5" path="res://World/Tilesets/LeanCaves.tres" id="3_qjpon"]
 [ext_resource type="Script" uid="uid://cikqpb1qhijjn" path="res://General/Scripts/level_bounds.gd" id="4_cb12h"]
 [ext_resource type="Texture2D" uid="uid://di561aa47ekqc" path="res://Imports/light_stream.jpg" id="5_0le7t"]
 [ext_resource type="PackedScene" uid="uid://dhg0efbtxac4s" path="res://World/Level_Transition/Scenes/Level_Transition.tscn" id="5_wumao"]
+[ext_resource type="Material" uid="uid://dxnllfkbu6ilm" path="res://Materials & Shaders/fog_fade_material.tres" id="6_0le7t"]
 
 [sub_resource type="Gradient" id="Gradient_wumao"]
 offsets = PackedFloat32Array(0.27816093, 1)
@@ -31,6 +32,21 @@ width = 256
 height = 256
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_rp1rd"]
+offsets = PackedFloat32Array(0.21609196, 0.7724138)
+colors = PackedColorArray(0, 0, 0, 0.14117648, 0.977, 0.94, 1, 0.2784314)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xntd2"]
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wgbon"]
+height = 256
+noise = SubResource("FastNoiseLite_xntd2")
+color_ramp = SubResource("Gradient_rp1rd")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.3
 
 [node name="playground" type="Node2D"]
 
@@ -194,7 +210,7 @@ tile_set = ExtResource("3_qjpon")
 [node name="TileMapLayer2" type="TileMapLayer" parent="LevelTilemaps"]
 modulate = Color(2.129, 1.6793444, 2.0713375, 1)
 position = Vector2(-1, 0)
-tile_map_data = PackedByteArray("AAARAAMABAAIAAcAAAAAAAQABAAIAAcAABAGAAcABAAGAAsAAAABAAcABAAHAAgAABARAAcABAAIAAgAABAQAAcABAAJAAgAABARAAQABAAGAAcAABAFAAYABAAFAAoAAAAFAAcABAAFAAsAAAAGAAYABAAGAAoAAAA=")
+tile_map_data = PackedByteArray("AAAAAAQABAAIAAcAABAGAAcABAAGAAsAAAABAAcABAAHAAgAABARAAcABAAIAAgAABAQAAcABAAJAAgAABAFAAYABAAFAAoAAAAFAAcABAAFAAsAAAAGAAYABAAGAAoAAAA=")
 tile_set = ExtResource("3_qjpon")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="LevelTilemaps"]
@@ -204,7 +220,7 @@ tile_map_data = PackedByteArray("AAANAAcABAADAA4AAAADAAcABAADAA4AABA=")
 tile_set = ExtResource("3_qjpon")
 
 [node name="LightParallax2D9" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(1.4, 1.4)
 
 [node name="Sprite2D4" type="Sprite2D" parent="LightParallax2D9"]
 modulate = Color(1, 0.89916664, 0.45, 0.44313726)
@@ -240,7 +256,7 @@ offset = Vector2(0, 256)
 
 [node name="FGParallax2D6" type="Parallax2D" parent="FGParallaxLayers"]
 modulate = Color(0, 0, 0, 1)
-z_index = 2
+z_index = 4
 scroll_scale = Vector2(1.5, 1.5)
 scroll_offset = Vector2(0, 25)
 
@@ -265,3 +281,32 @@ target_level = "uid://clyywy8lxl56u"
 
 [node name="Player" parent="." instance=ExtResource("1_ux8b7")]
 position = Vector2(272, 249)
+
+[node name="FogParallax" type="Parallax2D" parent="."]
+z_index = 3
+scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(-14, 138)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-5, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="FogParallax"]
+modulate = Color(1, 0.8, 0.9633333, 1)
+material = ExtResource("6_0le7t")
+position = Vector2(229, 77)
+texture = SubResource("NoiseTexture2D_wgbon")
+
+[node name="FogParallax2" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.58431375)
+z_index = 3
+scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(-14, 138)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-35, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="FogParallax2"]
+modulate = Color(1, 0.8, 0.9633333, 1)
+material = ExtResource("6_0le7t")
+position = Vector2(229, 77)
+texture = SubResource("NoiseTexture2D_wgbon")

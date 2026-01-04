@@ -33,6 +33,7 @@ folder_colors={
 "res://00_global/": "pink",
 "res://General/": "green",
 "res://Imports/": "red",
+"res://Materials & Shaders/": "purple",
 "res://Player/": "orange",
 "res://World/": "yellow"
 }
