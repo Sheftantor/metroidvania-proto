@@ -332,6 +332,7 @@ mix_target = 1
 stream = ExtResource("9_gef8c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 position = Vector2(0, -75)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

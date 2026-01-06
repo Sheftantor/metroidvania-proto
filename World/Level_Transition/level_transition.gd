@@ -27,7 +27,7 @@ func _ready() -> void:
 	SceneManager.load_scene_finished.connect( _on_load_scene_finish )
 		
 func _on_player_entered( _n : Node2D ) -> void:
-	SceneManager._transition_scene( target_level, target_area_name, get_offset( _n ) , get_transition_direction())
+	SceneManager.transition_scene( target_level, target_area_name, get_offset( _n ) , get_transition_direction())
 	pass
 	
 func _on_new_scene_ready( target_name : String, offset : Vector2 ) -> void:

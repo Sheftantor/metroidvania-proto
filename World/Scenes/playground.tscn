@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://u4tw1sy12qpy"]
+[gd_scene load_steps=21 format=4 uid="uid://u4tw1sy12qpy"]
 
 [ext_resource type="TileSet" uid="uid://cjf6pq26drhp5" path="res://World/Tilesets/LeanCaves.tres" id="3_qjpon"]
 [ext_resource type="Script" uid="uid://cikqpb1qhijjn" path="res://General/Scripts/level_bounds.gd" id="4_cb12h"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dhg0efbtxac4s" path="res://World/Level_Transition/Scenes/Level_Transition.tscn" id="5_wumao"]
 [ext_resource type="Material" uid="uid://dxnllfkbu6ilm" path="res://Materials & Shaders/fog_fade_material.tres" id="6_0le7t"]
 [ext_resource type="PackedScene" uid="uid://l1v4dgwx75if" path="res://General/player_spawn/player_spawn.tscn" id="6_rp1rd"]
-[ext_resource type="Script" uid="uid://xch3kkygejrv" path="res://General/player_spawn/player_spawn.gd" id="7_rp1rd"]
 
 [sub_resource type="Gradient" id="Gradient_wumao"]
 offsets = PackedFloat32Array(0.27816093, 1)
@@ -360,5 +359,4 @@ location = 1
 target_level = "uid://clyywy8lxl56u"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_rp1rd")]
-position = Vector2(131, 161)
-script = ExtResource("7_rp1rd")
+position = Vector2(275, 263)
