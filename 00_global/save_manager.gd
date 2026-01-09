@@ -2,12 +2,15 @@
 extends Node
 
 
+
+const SLOTS: Array[ String ] = [
+	"save_01", "save_02", "save_03"
+] 
+
 var current_slot : int = 0
 var save_data : Dictionary
 var discovered_area : Array = []
 var persistent_data : Dictionary = {}
-
-
 
 
 func _ready() -> void:
@@ -20,6 +23,12 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			save_game()
 		elif event.keycode == KEY_F7:
 			load_game()
+		elif event.keycode == KEY_F1:
+			current_slot = 0	
+		elif event.keycode == KEY_F2:
+			current_slot = 1
+		elif event.keycode == KEY_F3:
+			current_slot = 2	
 	pass	
 
 
@@ -42,7 +51,7 @@ func create_new_save_game() -> void:
 		"persistent_data": persistent_data, 
  	}
 	# Save game Data
-	var save_file = FileAccess.open( "user://save.sav", FileAccess.WRITE )
+	var save_file = FileAccess.open( get_file_name(), FileAccess.WRITE )
 	save_file.store_line( JSON.stringify( save_data ))
 	pass
 
@@ -64,7 +73,7 @@ func save_game() -> void:
 		"discovered_area": discovered_area,
 		"persistent_data": persistent_data, 
  	}
-	var save_file = FileAccess.open( "user://save.sav", FileAccess.WRITE )
+	var save_file = FileAccess.open( get_file_name(), FileAccess.WRITE )
 	save_file.store_line( JSON.stringify( save_data ))
 	pass
 
@@ -72,10 +81,10 @@ func save_game() -> void:
 func load_game() -> void:
 	print("Load Game!")
 	
-	if not FileAccess.file_exists( "user://save.sav" ):
+	if not FileAccess.file_exists( get_file_name() ):
 		return
 		
-	var save_file = FileAccess.open( "user://save.sav", FileAccess.READ )
+	var save_file = FileAccess.open( get_file_name(), FileAccess.READ )
 	save_data = JSON.parse_string( save_file.get_line() )
 	
 	persistent_data = save_data.get( "persistent_data", {} )
@@ -108,3 +117,7 @@ func setup_player() -> void:
 		)
 	
 	pass
+	
+	
+func get_file_name() -> String:
+	return "user://" + SLOTS[ current_slot ] + ".sav"

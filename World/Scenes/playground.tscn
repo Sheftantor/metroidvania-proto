@@ -24,7 +24,7 @@ blend_mode = 1
 light_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_0le7t"]
-colors = PackedColorArray(0.6784314, 0.29803923, 0.42745098, 1, 0.09, 0.0225, 0.086625025, 0)
+colors = PackedColorArray(0.6613717, 0.3901, 0.83, 1, 0.09, 0.0225, 0.086625025, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wumao"]
 gradient = SubResource("Gradient_0le7t")
@@ -52,11 +52,11 @@ seamless_blend_skirt = 0.3
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_xntd2"]
+[sub_resource type="Gradient" id="Gradient_wgbon"]
 colors = PackedColorArray(2.2618408, 0.9790944, 2.5203042, 1, 0.92941177, 0.58431375, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wgbon"]
-gradient = SubResource("Gradient_xntd2")
+gradient = SubResource("Gradient_wgbon")
 width = 16
 height = 16
 fill = 1
@@ -67,7 +67,7 @@ fill_to = Vector2(0.5, 0)
 offsets = PackedFloat32Array(0, 0.29245284, 0.6320755, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_q2850"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a1ltw"]
 gradient = SubResource("Gradient_a1ltw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c1oyl"]
@@ -79,7 +79,7 @@ initial_velocity_max = 300.0
 gravity = Vector3(0, 10, 0)
 scale_min = 0.75
 scale_max = 1.25
-color_ramp = SubResource("GradientTexture1D_q2850")
+color_ramp = SubResource("GradientTexture1D_a1ltw")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.039999977
 turbulence_enabled = true
@@ -251,7 +251,7 @@ tile_map_data = PackedByteArray("AAAAAAQABAAIAAcAABAGAAcABAAGAAsAAAABAAcABAAHAAg
 tile_set = ExtResource("3_qjpon")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="LevelTilemaps"]
-modulate = Color(0.85766464, 1.3090392, 1.4798273, 1)
+modulate = Color(1.514, 1.087, 2.919, 1)
 position = Vector2(-2, 0)
 tile_map_data = PackedByteArray("AAANAAcABAADAA4AAAADAAcABAADAA4AABA=")
 tile_set = ExtResource("3_qjpon")

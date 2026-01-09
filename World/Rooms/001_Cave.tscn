@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://clyywy8lxl56u"]
+[gd_scene load_steps=20 format=4 uid="uid://clyywy8lxl56u"]
 
 [ext_resource type="TileSet" uid="uid://cjf6pq26drhp5" path="res://World/Tilesets/LeanCaves.tres" id="1_0l7qp"]
 [ext_resource type="Texture2D" uid="uid://di561aa47ekqc" path="res://Imports/light_stream.jpg" id="2_grwo1"]
 [ext_resource type="Script" uid="uid://cikqpb1qhijjn" path="res://General/Scripts/level_bounds.gd" id="3_dqhjg"]
 [ext_resource type="PackedScene" uid="uid://dhg0efbtxac4s" path="res://World/Level_Transition/Scenes/Level_Transition.tscn" id="4_grwo1"]
+[ext_resource type="Material" uid="uid://dxnllfkbu6ilm" path="res://Materials & Shaders/fog_fade_material.tres" id="5_ll1eh"]
 
-[sub_resource type="Gradient" id="Gradient_hqprd"]
+[sub_resource type="Gradient" id="Gradient_grwo1"]
 offsets = PackedFloat32Array(0.27816093, 1)
 colors = PackedColorArray(0.8733763, 0.33330026, 0.4659505, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ll1eh"]
-gradient = SubResource("Gradient_hqprd")
+gradient = SubResource("Gradient_grwo1")
 width = 480
 height = 320
 fill = 1
@@ -21,15 +22,67 @@ fill_to = Vector2(1, 0.5)
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_cb12h"]
-colors = PackedColorArray(0.6784314, 0.29803923, 0.42745098, 1, 0.09, 0.0225, 0.086625025, 0)
+[sub_resource type="Gradient" id="Gradient_ll1eh"]
+colors = PackedColorArray(0.6627451, 0.3882353, 0.83137256, 1, 0.09, 0.0225, 0.086625025, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_grwo1"]
-gradient = SubResource("Gradient_cb12h")
+gradient = SubResource("Gradient_ll1eh")
 width = 256
 height = 256
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_rp1rd"]
+offsets = PackedFloat32Array(0.21609196, 0.7724138)
+colors = PackedColorArray(0, 0, 0, 0.14117648, 0.977, 0.94, 1, 0.2784314)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xntd2"]
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rceja"]
+height = 256
+noise = SubResource("FastNoiseLite_xntd2")
+color_ramp = SubResource("Gradient_rp1rd")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_frr04"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_xntd2"]
+colors = PackedColorArray(2.2618408, 0.9790944, 2.5203042, 1, 0.92941177, 0.58431375, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qp160"]
+gradient = SubResource("Gradient_xntd2")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_qufjg"]
+offsets = PackedFloat32Array(0, 0.29245284, 0.6320755, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q2850"]
+gradient = SubResource("Gradient_qufjg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rkhnh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 200, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 300.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.75
+scale_max = 1.25
+color_ramp = SubResource("GradientTexture1D_q2850")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.039999977
+turbulence_enabled = true
+turbulence_influence_max = 0.23200001
 
 [node name="001_Cave" type="Node2D"]
 
@@ -186,12 +239,12 @@ tile_set = ExtResource("1_0l7qp")
 collision_enabled = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(807.49994, 263)
-scale = Vector2(7.3867183, 0.90625006)
+position = Vector2(807.49994, 276.5)
+scale = Vector2(7.3867183, 1.0117189)
 texture = SubResource("GradientTexture2D_grwo1")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
-modulate = Color(0.16813262, 1.9327137, 2.1287782, 1)
+modulate = Color(2.129, 1.679, 2.071, 1)
 tile_map_data = PackedByteArray("AAAHAAQABAAJAAsAABD+/wgABAAIAAgAAAD//wgABAAJAAgAAAAAAAUABAAGAAcAAAAAAAEABAAIAAcAABAOAAgABAAIAAgAABANAAgABAAJAAgAABAWAAgABAAHAAgAAAAeAAYABAAHAAsAAAAeAAUABAAHAAoAAAAfAAUABAAIAAoAAAAfAAYABAAIAAsAAAAgAAYABAAJAAsAAAAJAAMABAAHAAoAABAIAAMABAAIAAoAABAJAAQABAAHAAsAABAIAAQABAAIAAsAABAgAP7/BAAIAAgAAAAhAP7/BAAJAAgAAAAfAP7/BAAHAAgAAAAqAAcABAAHAAgAAAArAAYABAAGAAgAAAAdAAYABAAGAAgAABA=")
 tile_set = ExtResource("1_0l7qp")
 
@@ -200,7 +253,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAQAFAAAAAAABAAkAAQAFAAAAAAACAAkAAQAFAAA
 tile_set = ExtResource("1_0l7qp")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
-modulate = Color(0.85766464, 1.3090392, 1.4798273, 1)
+modulate = Color(1.5140443, 1.0865499, 2.9186666, 1)
 tile_map_data = PackedByteArray("AAAJAAQABAADAA4AABAPAAcABAADAA4AAAA=")
 tile_set = ExtResource("1_0l7qp")
 
@@ -229,6 +282,48 @@ color = Color(0.01636274, 0.2762481, 0.3099175, 1)
 energy = 0.4
 blend_mode = 2
 
+[node name="Fog&Particles" type="Node2D" parent="."]
+
+[node name="FogParallax" type="Parallax2D" parent="Fog&Particles"]
+z_index = 3
+scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(-14, 138)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-5, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Fog&Particles/FogParallax"]
+modulate = Color(1, 0.8, 0.9633333, 1)
+material = ExtResource("5_ll1eh")
+position = Vector2(229, 112)
+texture = SubResource("NoiseTexture2D_rceja")
+
+[node name="FogParallax2" type="Parallax2D" parent="Fog&Particles"]
+modulate = Color(1, 1, 1, 0.58431375)
+z_index = 3
+scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(-14, 138)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-35, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Fog&Particles/FogParallax2"]
+modulate = Color(1, 0.8, 0.9633333, 1)
+material = ExtResource("5_ll1eh")
+position = Vector2(229, 112)
+texture = SubResource("NoiseTexture2D_rceja")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fog&Particles"]
+material = SubResource("CanvasItemMaterial_frr04")
+position = Vector2(718.00006, 176.00002)
+scale = Vector2(1.716, 2.716)
+amount = 190
+texture = SubResource("GradientTexture2D_qp160")
+lifetime = 5.0
+randomness = 0.85
+visibility_rect = Rect2(-250, -100, 500, 250)
+process_material = SubResource("ParticleProcessMaterial_rkhnh")
+
 [node name="Parallax2D9" type="Parallax2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 2
@@ -236,6 +331,6 @@ scroll_scale = Vector2(1.5, 1.5)
 scroll_offset = Vector2(0, 25)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Parallax2D9"]
-tile_map_data = PackedByteArray("AAD9/wYABAABAAoAAAAAAAcABAACAAkAAAAAAAgABAACAAoAAAAAAAkABAACAAsAAAABAAcABAADAAkAAAABAAgABAADAAoAAAABAAkABAADAAsAAAACAAcABAAEAAkAAAACAAgABAAEAAoAAAACAAkABAAEAAsAAAAGAAgABAACAAkAABAFAAgABAADAAkAABAEAAgABAAEAAkAABAGAAkABAACAAoAABAFAAkABAADAAoAABAEAAkABAAEAAoAABAGAAoABAACAAsAABAFAAoABAADAAsAABAEAAoABAAEAAsAABAHAAgABAAHAAoAAAAHAAkABAAHAAsAAAAIAAgABAAIAAoAAAAIAAkABAAIAAsAAAD//wgABAAHAAoAABD+/wgABAAIAAoAABD//wkABAAHAAsAABD+/wkABAAIAAsAABANAAgABAAFAAoAAAANAAkABAAFAAsAAAAOAAgABAAGAAoAAAAOAAkABAAGAAsAAAATAAgABAAHAAoAABASAAgABAAIAAoAABATAAkABAAHAAsAABASAAkABAAIAAsAABARAAkABAAJAAsAABAMAAgABAAHAAoAABALAAgABAAIAAoAABAMAAkABAAHAAsAABALAAkABAAIAAsAABAKAAkABAAJAAsAABA=")
+tile_map_data = PackedByteArray("AAD+/wkABAACAAkAAAD+/woABAACAAoAAAD+/wsABAACAAsAAAD//wkABAADAAkAAAD//woABAADAAoAAAD//wsABAADAAsAAAAAAAkABAAEAAkAAAAAAAoABAAEAAoAAAAAAAsABAAEAAsAAAAIAAoABAACAAkAABAHAAoABAADAAkAABAGAAoABAAEAAkAABAIAAsABAACAAoAABAHAAsABAADAAoAABAGAAsABAAEAAoAABAIAAwABAACAAsAABAHAAwABAADAAsAABAGAAwABAAEAAsAABAOAAkABAACAAkAABANAAkABAADAAkAABAMAAkABAAEAAkAABAOAAoABAACAAoAABANAAoABAADAAoAABAMAAoABAAEAAoAABAOAAsABAACAAsAABANAAsABAADAAsAABAMAAsABAAEAAsAABAcAAkABAAEAAkAAAAbAAkABAADAAkAAAAaAAkABAACAAkAAAAcAAoABAAEAAoAAAAbAAoABAADAAoAAAAaAAoABAACAAoAAAAcAAsABAAEAAsAAAAbAAsABAADAAsAAAAaAAsABAACAAsAAAAnAAgABAAEAAkAAAAmAAgABAADAAkAAAAlAAgABAACAAkAAAAnAAkABAAEAAoAAAAmAAkABAADAAoAAAAlAAkABAACAAoAAAAnAAoABAAEAAsAAAAmAAoABAADAAsAAAAlAAoABAACAAsAAAAwAAkABAACAAkAABAvAAkABAADAAkAABAuAAkABAAEAAkAABAwAAoABAACAAoAABAvAAoABAADAAoAABAuAAoABAAEAAoAABAwAAsABAACAAsAABAvAAsABAADAAsAABAuAAsABAAEAAsAABACAAoABAAFAAoAAAACAAsABAAFAAsAAAADAAoABAAGAAoAAAADAAsABAAGAAsAAAAKAAoABAAFAAoAABAJAAoABAAGAAoAABAKAAsABAAFAAsAABAJAAsABAAGAAsAABAeAAoABAAFAAoAABAdAAoABAAGAAoAABAeAAsABAAFAAsAABAdAAsABAAGAAsAABASAAkABAAFAAoAABARAAkABAAGAAoAABASAAoABAAFAAsAABARAAoABAAGAAsAABAjAAkABAAGAAoAAAAiAAkABAAFAAoAAAAjAAoABAAGAAsAAAAiAAoABAAFAAsAAAAzAAkABAAGAAoAAAAyAAkABAAFAAoAAAAzAAoABAAGAAsAAAAyAAoABAAFAAsAAAATAAoABAAHAAoAAAATAAsABAAHAAsAAAAUAAoABAAIAAoAAAAUAAsABAAIAAsAAAAVAAsABAAJAAsAAAAqAAoABAAHAAoAAAAqAAsABAAHAAsAAAArAAoABAAIAAoAAAArAAsABAAIAAsAAAAsAAsABAAJAAsAAAA=")
 tile_set = ExtResource("1_0l7qp")
 collision_enabled = false

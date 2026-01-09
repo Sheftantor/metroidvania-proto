@@ -325,11 +325,12 @@ max_results = 12
 
 [node name="FootsSteps_Cave" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5njaf")
-volume_db = -0.165
+volume_db = -2.935
 mix_target = 1
 
 [node name="PostJump_Cave" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_gef8c")
+volume_db = -4.83
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
