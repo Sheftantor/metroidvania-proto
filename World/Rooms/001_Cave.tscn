@@ -22,6 +22,21 @@ fill_to = Vector2(1, 0.5)
 blend_mode = 1
 light_mode = 1
 
+[sub_resource type="Gradient" id="Gradient_rp1rd"]
+offsets = PackedFloat32Array(0.21609196, 0.7724138)
+colors = PackedColorArray(0, 0, 0, 0.14117648, 0.977, 0.94, 1, 0.21176471)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xntd2"]
+frequency = 0.0065
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rceja"]
+height = 256
+noise = SubResource("FastNoiseLite_xntd2")
+color_ramp = SubResource("Gradient_rp1rd")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.36
+
 [sub_resource type="Gradient" id="Gradient_ll1eh"]
 colors = PackedColorArray(0.6627451, 0.3882353, 0.83137256, 1, 0.09, 0.0225, 0.086625025, 0)
 
@@ -31,21 +46,6 @@ width = 256
 height = 256
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
-
-[sub_resource type="Gradient" id="Gradient_rp1rd"]
-offsets = PackedFloat32Array(0.21609196, 0.7724138)
-colors = PackedColorArray(0, 0, 0, 0.14117648, 0.977, 0.94, 1, 0.2784314)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_xntd2"]
-frequency = 0.003
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rceja"]
-height = 256
-noise = SubResource("FastNoiseLite_xntd2")
-color_ramp = SubResource("Gradient_rp1rd")
-seamless = true
-normalize = false
-seamless_blend_skirt = 0.3
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_frr04"]
 blend_mode = 1
@@ -196,6 +196,33 @@ scroll_scale = Vector2(0.7, 0.7)
 tile_map_data = PackedByteArray("AAACAAAABAAKAAIAAAAEAAAABAAKAAIAAAADAAAABAAKAAIAABAHAAAABAAKAAIAABAIAAAABAAKAAIAABAJAAAABAAKAAIAAAAMAP//BAAKAAIAABAMAAAABAAKAAIAABALAAAABAAKAAIAAAAPAAAABAAKAAIAAAANAAAABAAKAAIAABAOAAAABAAKAAIAABA=")
 tile_set = ExtResource("1_0l7qp")
 
+[node name="FogParallax" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-14, 138)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-5, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="FogParallax"]
+modulate = Color(1, 0.8, 0.9633333, 1)
+material = ExtResource("5_ll1eh")
+position = Vector2(229, 32)
+texture = SubResource("NoiseTexture2D_rceja")
+
+[node name="FogParallax2" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.8901961)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-14, 138)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-35, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="FogParallax2"]
+modulate = Color(1, 0.8, 0.9633333, 1)
+material = ExtResource("5_ll1eh")
+position = Vector2(229, 24)
+texture = SubResource("NoiseTexture2D_rceja")
+
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 modulate = Color(0.2759742, 0.027275268, 0.209429, 1)
 scroll_scale = Vector2(0.6, 0.6)
@@ -299,7 +326,7 @@ position = Vector2(229, 112)
 texture = SubResource("NoiseTexture2D_rceja")
 
 [node name="FogParallax2" type="Parallax2D" parent="Fog&Particles"]
-modulate = Color(1, 1, 1, 0.58431375)
+modulate = Color(1, 1, 1, 0.8901961)
 z_index = 3
 scroll_scale = Vector2(1.3, 1.3)
 scroll_offset = Vector2(-14, 138)

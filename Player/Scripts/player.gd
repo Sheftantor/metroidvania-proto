@@ -47,9 +47,12 @@ func _ready() -> void:
 		self.queue_free()
 	Initialize_States()
 	self.call_deferred( "reparent", get_tree().root )
+	Messages.player_healed.connect( _on_player_healed )
 	pass
 	
 func _unhandled_input( event: InputEvent) -> void:
+	if event.is_action_pressed("action"):
+		Messages.player_interacted.emit( self )
 	ChangeState( current_state.handle_input( event ) )
 	
 func _physics_process( _delta : float ) -> void:
@@ -128,4 +131,10 @@ func add_debug_indicator( color : Color = Color.RED) -> void:
 	d.modulate = color
 	await get_tree().create_timer( 3.0 ). timeout
 	d.queue_free()
+	pass
+
+func _on_player_healed( amount : float ) -> void:
+	hp += amount
+	print("player healed for: ", amount)
+	# Audio/visual
 	pass

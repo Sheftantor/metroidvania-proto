@@ -11,9 +11,19 @@ func _ready() -> void:
 	pass
 	
 func _on_player_entered( _n : Node2D ) -> void:
-	print( "Player Entered" )
+	Messages.player_interacted.connect( _on_player_interactive )
+	Messages.input_hint_changed.emit( "interact" )
 	pass
 	
 func _on_player_exited( _n : Node2D ) -> void:
-	print( "Player Exited" )
+	Messages.player_interacted.disconnect( _on_player_interactive )
+	Messages.input_hint_changed.emit( "" )
+	pass
+
+func _on_player_interactive( player : Player ) -> void:
+	SaveManager.save_game()
+	Messages.player_healed.emit( 999 )
+	animation_player.play("game_saved")
+	animation_player.seek( 0 )
+	# Audio
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2g0qrobqowur"]
+[gd_scene load_steps=26 format=3 uid="uid://2g0qrobqowur"]
 
 [ext_resource type="Script" uid="uid://bxf8ydjreo56b" path="res://Player/Scripts/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://ccvc8ljodbw30" path="res://Player/States/Idle.gd" id="2_4ntmi"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bucof0axpswpl" path="res://Player/Sprites/hero2-Sheet.png" id="7_vtle1"]
 [ext_resource type="AudioStream" uid="uid://fu364vekiitw" path="res://Imports/sounds/PavementTiles_Mono_04.wav" id="8_5njaf"]
 [ext_resource type="AudioStream" uid="uid://b2esmfupe2s3c" path="res://Imports/sounds/Post Jump 1.wav" id="9_gef8c"]
+[ext_resource type="Script" uid="uid://bl2q3v17elt4l" path="res://Player/Scripts/input_hints.gd" id="11_e3k88"]
+[ext_resource type="Texture2D" uid="uid://c31s5ndhxb2v3" path="res://Player/Sprites/input_icons.png" id="11_k8k5e"]
 
 [sub_resource type="Animation" id="Animation_o43ru"]
 resource_name = "Attack1"
@@ -286,6 +288,7 @@ unique_name_in_owner = true
 script = ExtResource("7_o43ru")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -19.0
 offset_top = -64.0
 offset_right = 21.0
@@ -341,3 +344,12 @@ position = Vector2(0, -29)
 color = Color(0.73, 0.62780005, 0.42340004, 1)
 energy = 0.5
 texture = SubResource("GradientTexture2D_k8k5e")
+
+[node name="InputHints" type="Node2D" parent="."]
+script = ExtResource("11_e3k88")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputHints"]
+position = Vector2(0, -58)
+texture = ExtResource("11_k8k5e")
+hframes = 16
+frame = 9
