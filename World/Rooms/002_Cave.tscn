@@ -37,6 +37,7 @@ position = Vector2(-88, 222)
 size = 5
 location = 0
 target_level = "uid://clyywy8lxl56u"
+target_area_name = "LevelTransition2"
 
 [node name="LevelTransition2" parent="." instance=ExtResource("4_r34ah")]
 position = Vector2(1672, -256)
