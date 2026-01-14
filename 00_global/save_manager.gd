@@ -34,6 +34,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func create_new_save_game( slot : int ) -> void:
 	current_slot = slot
+	discovered_area.clear()
+	persistent_data.clear()
 	var new_game_scene : String = "uid://u4tw1sy12qpy"
 	discovered_area.append( new_game_scene )
 	save_data = {

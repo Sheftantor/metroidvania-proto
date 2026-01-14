@@ -23,6 +23,13 @@ const HINT_MAP : Dictionary = {
 		"jump" : 7,
 		"dash" : 6,
 		"up" : 4
+	},
+	"nintendo" : {
+		"interact" : 7,
+		"attack" : 8,
+		"jump" : 6,
+		"dash" : 5,
+		"up" : 4
 	}
 }
 
@@ -46,15 +53,12 @@ func _input( event : InputEvent ) -> void:
 func get_controller_type( device_id : int ) -> void:
 	var n : String = Input.get_joy_name( device_id ).to_lower()
 	
-	if "xbox" in n:
+	if "xbox" in n or "x" in n:
 		controller_type = "xbox"
-	elif "playstation" in n or "ps" in n or "dualsanse" in n:
-		controller_type = "playstation"
 	elif "nintendo" in n or "switch" in n:
-		#controller_type = "nintendo"
-		controller_type = "playstation"
+		controller_type = "nintendo"
 	else:
-		controller_type = "unknown"
+		controller_type = "playstation"
 		
 	
 	print(controller_type)	
