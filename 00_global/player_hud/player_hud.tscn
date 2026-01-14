@@ -16,6 +16,7 @@ colors = PackedColorArray(0.7715464, 0.39084733, 0.39084733, 1, 0.7240258, 0.428
 gradient = SubResource("Gradient_tdgrf")
 
 [node name="PlayerHud" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_vb1bs")
 
 [node name="Control" type="Control" parent="."]

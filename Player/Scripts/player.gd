@@ -59,6 +59,8 @@ func _ready() -> void:
 func _unhandled_input( event: InputEvent) -> void:
 	if event.is_action_pressed("action"):
 		Messages.player_interacted.emit( self )
+	elif event.is_action_pressed( "pause" ):
+		pass
 	# Get rid of later
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_MINUS:
@@ -70,7 +72,6 @@ func _unhandled_input( event: InputEvent) -> void:
 				max_hp += 10
 			else:	
 				hp += 2
-		
 	# end get rid of	
 		
 	ChangeState( current_state.handle_input( event ) )
