@@ -20,9 +20,7 @@ func _ready() -> void:
 	camera.limit_left = int( global_position.x )
 	camera.limit_top = int( global_position.y )
 	camera.limit_right = int( global_position.x ) + width
-	camera.limit_bottom = int( global_position.x ) + height
-	# Check for and get reference to our camera
-	# Update camera's limits
+	camera.limit_bottom = int( global_position.y ) + height
 	pass
 	
 	

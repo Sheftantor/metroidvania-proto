@@ -14,6 +14,7 @@ var persistent_data : Dictionary = {}
 
 
 func _ready() -> void:
+	SceneManager.scene_entered.connect( _on_scene_entered )
 	pass
 	
 	
@@ -129,4 +130,16 @@ func get_file_name( slot : int ) -> String:
 
 func save_file_exists( slot : int ) -> bool:
 	return FileAccess.file_exists( get_file_name( slot ) )
+
+
+func is_area_discovered( scene_uid : String ) -> bool:
+	return discovered_area.has( scene_uid )
+
 	
+
+func _on_scene_entered( scene_uid : String ) -> void:
+	if discovered_area.has( scene_uid ):
+		return
+	else:
+		discovered_area.append( scene_uid )
+	pass

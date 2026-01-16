@@ -25,12 +25,12 @@ height = 256
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="Animation" id="Animation_trtpm"]
-resource_name = "start"
-step = 0.0333333
-
 [sub_resource type="Animation" id="Animation_tsuwi"]
 resource_name = "loop"
+step = 0.0333333
+
+[sub_resource type="Animation" id="Animation_trtpm"]
+resource_name = "start"
 step = 0.0333333
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33qh1"]
