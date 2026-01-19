@@ -79,28 +79,29 @@ func create_entrance_data( transitions : Array[ LevelTransition ] ) -> void:
 	entrance_left.clear()
 	entrance_right.clear()
 	for t in transitions:
+		var pos : Vector2 = ( t.position - indicator_offset ) / SCALE_FACTOR
 		if t.location == LevelTransition.SIDE.LEFT:
 			var offset : float = clampf(
-					self.size.y + ( -t.global_position.y / SCALE_FACTOR ),
-					2.0, self.size.y - 2
+					pos.y - 3,
+					2.0, self.size.y - 5
 				)
 			entrance_left.append( offset )
 		elif t.location == LevelTransition.SIDE.RIGHT:
 			var offset : float = clampf(
-					self.size.y + ( -t.global_position.y / SCALE_FACTOR ),
-					2.0, self.size.y - 2
+					pos.y - 3,
+					2.0, self.size.y - 5
 				)
 			entrance_right.append( offset )
 		elif t.location == LevelTransition.SIDE.TOP:
 			var offset : float = clampf(
-					t.global_position.x / SCALE_FACTOR,
-					2.0, self.size.x - 2
+					pos.x,
+					2.0, self.size.x - 5
 				)
 			entrance_top.append( offset )
 		elif t.location == LevelTransition.SIDE.BOTTOM:
 			var offset : float = clampf(
-					t.global_position.x / SCALE_FACTOR,
-					2.0, self.size.x - 2
+					pos.x,
+					2.0, self.size.x - 5
 				)
 			entrance_bottom.append( offset )		
 	pass
@@ -153,7 +154,7 @@ func display_player_location() -> void:
 	var i : Control = %PlayerIndicator
 	var pos : Vector2 = position
 	pos += (( player.global_position - indicator_offset ) / SCALE_FACTOR  )
-	var clamp : Vector2 = Vector2( 4, 4 )
+	var clamp : Vector2 = Vector2( 3, 3 )
 	pos = pos.clamp( position + clamp, position + size - clamp )
 	i.position = pos
 	pass
