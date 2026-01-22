@@ -146,13 +146,23 @@ entrance_left = Array[float]([2.0])
 [node name="MapNode6" parent="Control/PauseScreen/Map" instance=ExtResource("2_jlo30")]
 modulate = Color(0.627451, 0, 0.85882354, 1)
 layout_mode = 1
-offset_left = 120.0
+offset_left = 141.0
 offset_top = 96.0
-offset_right = 163.0
+offset_right = 161.0
 offset_bottom = 102.0
 linked_scene = "uid://w6uxc4va8okt"
-entrance_top = Array[float]([26.333334])
+entrance_top = Array[float]([4.9791665])
 entrance_right = Array[float]([1.0])
+
+[node name="MapNode7" parent="Control/PauseScreen/Map" instance=ExtResource("2_jlo30")]
+modulate = Color(0.627451, 0, 0.85882354, 1)
+layout_mode = 1
+offset_left = 162.0
+offset_top = 80.0
+offset_right = 182.0
+offset_bottom = 102.0
+linked_scene = "uid://couorj2uwbff7"
+entrance_left = Array[float]([17.0, 8.5625])
 
 [node name="MapNode5" parent="Control/PauseScreen/Map" instance=ExtResource("2_jlo30")]
 modulate = Color(0.627451, 0, 0.85882354, 1)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6jp7soagvod5"]
+[gd_scene load_steps=9 format=3 uid="uid://c6jp7soagvod5"]
 
+[ext_resource type="Script" uid="uid://t5af2goxceqw" path="res://General/door_&_switch/door.gd" id="1_8j4ci"]
 [ext_resource type="Texture2D" uid="uid://bid12tiiu70j1" path="res://General/door_&_switch/door_and_switch.png" id="1_dt212"]
 
 [sub_resource type="Animation" id="Animation_8j4ci"]
@@ -174,6 +175,7 @@ _data = {
 size = Vector2(20, 101)
 
 [node name="Door" type="Node2D"]
+script = ExtResource("1_8j4ci")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 16)
