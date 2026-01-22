@@ -365,4 +365,4 @@ target_level = "uid://bwjdxhx24nxmj"
 [node name="LevelTransition3" parent="." instance=ExtResource("5_suonn")]
 position = Vector2(672, 416)
 size = 5
-target_level = "uid://bwjdxhx24nxmj"
+target_level = "uid://w6uxc4va8okt"
