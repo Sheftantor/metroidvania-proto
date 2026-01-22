@@ -11,8 +11,12 @@ const DOOR_CRASH_AUDIO  = preload( "res://General/door_&_switch/door_crash.wav" 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-		
-	# Connect to switch code	
+	
+	for c in get_children():
+		if c is Switch:
+			c.activated.connect( _on_switch_activated )
+			if c.is_open == true:
+				_on_switch_is_open()
 	pass
 	
 	
