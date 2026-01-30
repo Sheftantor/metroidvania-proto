@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://co6mr888wy3sp"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6i7w7"]
+
+[node name="Audio" type="Node"]
+
+[node name="Music1" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_6i7w7")
+bus = &"Music"
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_6i7w7")
+bus = &"Music"
+
+[node name="UI" type="AudioStreamPlayer" parent="."]
+bus = &"UI"
