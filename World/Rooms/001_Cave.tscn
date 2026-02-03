@@ -367,4 +367,5 @@ collision_enabled = false
 [node name="MusicAutoTrigger" type="Node" parent="."]
 script = ExtResource("6_rceja")
 track = ExtResource("7_frr04")
+reverb = 2
 metadata/_custom_type_script = "uid://4oi8bkbupd8f"

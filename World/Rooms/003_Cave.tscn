@@ -377,4 +377,5 @@ target_level = "uid://w6uxc4va8okt"
 [node name="MusicAutoTrigger" type="Node" parent="."]
 script = ExtResource("9_h5h1g")
 track = ExtResource("10_t6v0t")
+reverb = 2
 metadata/_custom_type_script = "uid://4oi8bkbupd8f"

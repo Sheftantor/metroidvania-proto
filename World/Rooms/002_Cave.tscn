@@ -55,4 +55,5 @@ blend_mode = 2
 [node name="MusicAutoTrigger" type="Node" parent="."]
 script = ExtResource("4_jyban")
 track = ExtResource("5_amvs5")
+reverb = 3
 metadata/_custom_type_script = "uid://4oi8bkbupd8f"
