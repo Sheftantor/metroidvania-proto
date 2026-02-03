@@ -18,7 +18,7 @@ func _ready() -> void:
 	#grab player
 	show_pause_screen()
 	system_menubutton.pressed.connect( show_system_menu )
-	#audio setup
+	Audio.setup_button_audio( self )
 	setup_system_menu()
 	pass
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bmciocb5ykh"]
+[gd_scene load_steps=25 format=4 uid="uid://bmciocb5ykh"]
 
 [ext_resource type="TileSet" uid="uid://cjf6pq26drhp5" path="res://World/Tilesets/LeanCaves.tres" id="1_jy53v"]
 [ext_resource type="Texture2D" uid="uid://di561aa47ekqc" path="res://Imports/light_stream.jpg" id="2_ebfv3"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://cikqpb1qhijjn" path="res://General/Scripts/level_bounds.gd" id="4_nrllu"]
 [ext_resource type="PackedScene" uid="uid://dpnxx6wqb6b2k" path="res://General/door_&_switch/switch.tscn" id="4_suonn"]
 [ext_resource type="PackedScene" uid="uid://dhg0efbtxac4s" path="res://World/Level_Transition/Scenes/Level_Transition.tscn" id="5_suonn"]
+[ext_resource type="Script" uid="uid://4oi8bkbupd8f" path="res://Imports/Music/music_auto_trigger.gd" id="9_h5h1g"]
+[ext_resource type="AudioStream" uid="uid://bp785sbr3aimh" path="res://Imports/Music/dungeon_01.ogg" id="10_t6v0t"]
 
 [sub_resource type="Gradient" id="Gradient_wumao"]
 offsets = PackedFloat32Array(0.27816093, 1)
@@ -371,3 +373,8 @@ target_area_name = "LevelTransition2"
 position = Vector2(672, 416)
 size = 5
 target_level = "uid://w6uxc4va8okt"
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("9_h5h1g")
+track = ExtResource("10_t6v0t")
+metadata/_custom_type_script = "uid://4oi8bkbupd8f"

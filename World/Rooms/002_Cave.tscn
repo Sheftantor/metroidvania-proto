@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://yvy7ghlgdtpj"]
+[gd_scene load_steps=6 format=4 uid="uid://yvy7ghlgdtpj"]
 
 [ext_resource type="TileSet" uid="uid://cjf6pq26drhp5" path="res://World/Tilesets/LeanCaves.tres" id="1_wana8"]
 [ext_resource type="Script" uid="uid://cikqpb1qhijjn" path="res://General/Scripts/level_bounds.gd" id="3_jyban"]
+[ext_resource type="Script" uid="uid://4oi8bkbupd8f" path="res://Imports/Music/music_auto_trigger.gd" id="4_jyban"]
 [ext_resource type="PackedScene" uid="uid://dhg0efbtxac4s" path="res://World/Level_Transition/Scenes/Level_Transition.tscn" id="4_r34ah"]
+[ext_resource type="AudioStream" uid="uid://dk5m5g12wlmdj" path="res://Imports/Music/forest_01.ogg" id="5_amvs5"]
 
 [node name="002_Cave" type="Node2D"]
 
@@ -49,3 +51,8 @@ target_level = "uid://bwjdxhx24nxmj"
 color = Color(0.01636274, 0.2762481, 0.3099175, 1)
 energy = 0.6
 blend_mode = 2
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("4_jyban")
+track = ExtResource("5_amvs5")
+metadata/_custom_type_script = "uid://4oi8bkbupd8f"

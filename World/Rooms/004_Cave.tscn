@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://w6uxc4va8okt"]
+[gd_scene load_steps=23 format=4 uid="uid://w6uxc4va8okt"]
 
 [ext_resource type="TileSet" uid="uid://cjf6pq26drhp5" path="res://World/Tilesets/LeanCaves.tres" id="1_rfih5"]
 [ext_resource type="Texture2D" uid="uid://di561aa47ekqc" path="res://Imports/light_stream.jpg" id="2_bvjuh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cikqpb1qhijjn" path="res://General/Scripts/level_bounds.gd" id="4_k3v7x"]
 [ext_resource type="PackedScene" uid="uid://dhg0efbtxac4s" path="res://World/Level_Transition/Scenes/Level_Transition.tscn" id="5_gcnlu"]
 [ext_resource type="PackedScene" uid="uid://l1v4dgwx75if" path="res://General/player_spawn/player_spawn.tscn" id="6_ua454"]
+[ext_resource type="Script" uid="uid://4oi8bkbupd8f" path="res://Imports/Music/music_auto_trigger.gd" id="7_7kcy6"]
+[ext_resource type="AudioStream" uid="uid://bp785sbr3aimh" path="res://Imports/Music/dungeon_01.ogg" id="8_k3v7x"]
 
 [sub_resource type="Gradient" id="Gradient_wumao"]
 offsets = PackedFloat32Array(0.27816093, 1)
@@ -371,3 +373,8 @@ target_level = "uid://couorj2uwbff7"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_ua454")]
 position = Vector2(1081, 182)
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("7_7kcy6")
+track = ExtResource("8_k3v7x")
+metadata/_custom_type_script = "uid://4oi8bkbupd8f"
